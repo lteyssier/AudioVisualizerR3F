@@ -9,6 +9,7 @@
 //   gl_FragColor = vec4(col,1.0);
 // }
 uniform float uTime;
+uniform vec2 u_resolution;
 varying vec2 vUv;
 vec3 palette( float t ) {
     vec3 a = vec3(0.5, 0.5, 0.5);
@@ -20,8 +21,9 @@ vec3 palette( float t ) {
 }
 
 void main() {
-    vec2 uv = vUv.xy;
-    //vec2 uv = vUv
+   //vec2 uv = vUv.xy*2.0;
+    vec2 uv = abs(vUv.xy*2.0)-1.0;
+    //vec2 uv = min(abs(vUv.x-0.5),abs(vUv.y-0.5));
     vec2 uv0 = uv;
     vec3 finalColor = vec3(0.0);
     
@@ -30,9 +32,9 @@ void main() {
 
         float d = length(uv) * exp(-length(uv0));
 
-        vec3 col = palette(length(uv0) + i*.4 + uTime*.4);
+        vec3 col = palette(length(uv0) + i*.3 + uTime*.4);
 
-        d = sin(d*8. + uTime)/8.;
+        d = sin(d*8. + uTime)/5.;
         d = abs(d);
 
         d = pow(0.01 / d, 1.2);

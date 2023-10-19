@@ -9,7 +9,7 @@ import { useRef } from "react"
 
 const PatternMaterial = shaderMaterial(
     {
-        uTime:0,   
+        uTime:0,
     },
     vertexShader,
     fragmentShader
@@ -22,7 +22,7 @@ const Model = () => {
     const patternMaterial= useRef()
 
     useFrame((state,delta)=>{
-        patternMaterial.current.uTime += delta*0.8
+        patternMaterial.current.uTime += delta*1.
     })
 
   return (
