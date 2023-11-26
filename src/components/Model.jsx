@@ -31,10 +31,8 @@ const Model = () => {
         <OrbitControls makeDefault/>
         <pointLight/>
     <mesh>
-
-        <planeGeometry args={[6,6]}/>
-        <patternMaterial ref={patternMaterial} />
-
+        <icosahedronGeometry args={[2,3]}/>
+        <patternMaterial  wirefram={true}  ref={patternMaterial} />
     </mesh>
     </>
   )

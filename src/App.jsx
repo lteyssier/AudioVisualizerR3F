@@ -1,13 +1,13 @@
 import { Canvas } from '@react-three/fiber'
 import './App.css'
-import Model from './components/Model'
+import Blob from './components/Blob'
 
 function App() {
 
   return (
     <>
       <Canvas>
-          <Model/>
+          <Blob/>
       </Canvas>
     </>
   )
