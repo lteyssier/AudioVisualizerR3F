@@ -6,13 +6,14 @@ import vertexShader from './shaders/vertex.glsl'
 import fragmentShader from './shaders/fragment.glsl'
 import * as THREE from 'three'
 import { Sparkles } from "@react-three/drei";
+import mp3 from '../../public/tvari-tokyo-cafe.mp3'
 
 const listener = new THREE.AudioListener()
 const sound = new THREE.Audio(listener)
 const analyser = new THREE.AudioAnalyser(sound, 32)
 
 const audioLoader = new THREE.AudioLoader()
-audioLoader.load("../../public/tvari-tokyo-cafe.mp3", function(buffer){
+audioLoader.load(mp3, function(buffer){
     sound.setBuffer(buffer)
     window.addEventListener('click', function(){
         sound.play()
